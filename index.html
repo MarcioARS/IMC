@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IMC Moderna</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Container Principal do App -->
+  <div class="app-container">
+
+    <!-- Cabeçalho com Título e Alternador de Tema -->
+    <header class="app-header">
+      <h1>Calculadora de IMC</h1>
+      <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema">
+        <!-- Ícone de Lua (Modo Escuro) -->
+        <svg id="theme-icon" xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Seção de Entrada de Dados (Formulário) -->
+    <main class="app-main">
+      <div class="input-group">
+        <label for="weight">Peso (kg)</label>
+        <input type="number" id="weight" placeholder="Ex: 75.5" step="0.1" min="10" max="300" required>
+      </div>
+
+      <div class="input-group">
+        <label for="height">Altura (m)</label>
+        <input type="number" id="height" placeholder="Ex: 1.75" step="0.01" min="0.5" max="2.5" required>
+      </div>
+
+      <button id="btn-calculate" class="btn-primary">Calcular IMC</button>
+
+      <!-- Seção de Resultados (Inicialmente Oculta) -->
+      <section id="result-section" class="result-container hidden">
+        <hr class="divider">
+
+        <div class="result-display">
+          <span class="result-label">Seu IMC é</span>
+          <span id="imc-value" class="result-number">24.5</span>
+          <span id="imc-status" class="status-badge">Peso Normal</span>
+        </div>
+
+        <!-- Barra Visual de Progresso do IMC -->
+        <div class="imc-scale-container">
+          <div class="imc-scale-bar">
+            <!-- Ponteiro indicador que se move via JavaScript -->
+            <div id="imc-pointer" class="scale-pointer"></div>
+            <div class="scale-segment underweight"></div>
+            <div class="scale-segment normal"></div>
+            <div class="scale-segment overweight"></div>
+            <div class="scale-segment obese"></div>
+          </div>
+          <!-- Legenda simples sob a barra -->
+          <div class="scale-labels">
+            <span>Abaixo</span>
+            <span>Normal</span>
+            <span>Sobrepeso</span>
+            <span>Obesidade</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
